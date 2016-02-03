@@ -1,0 +1,8 @@
+FROM example-app-service-build
+
+VOLUME . /app
+WORKDIR /app
+
+RUN bundle install
+
+CMD echo $ENV

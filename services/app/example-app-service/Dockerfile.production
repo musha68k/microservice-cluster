@@ -1,0 +1,4 @@
+FROM example-app-service-build
+
+ADD . /app
+WORKDIR /app
