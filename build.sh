@@ -1,4 +1,4 @@
-  #!/usr/bin/env sh
+#!/usr/bin/env sh
 
 # helper functions
 
@@ -12,8 +12,8 @@ log_status() {
 
 # building base container images
 
-for BASE_SERVICE_DIR in {services/base/*}; do
-  BASE_SERVICE=(basename "$BASE_SERVICE_DIR")
+for BASE_SERVICE_DIR in services/base/*; do
+  BASE_SERVICE=$(basename "$BASE_SERVICE_DIR")
 
   log_status "$BASE_SERVICE"
   docker build -t "${BASE_SERVICE}-build" "$BASE_SERVICE_DIR"
@@ -22,8 +22,8 @@ done
 
 # build environment specific "application" container images
 
-for APP_SERVICE_DIR in {services/app/*}; do
-  APP_SERVICE=(basename "$APP_SERVICE_DIR")
+for APP_SERVICE_DIR in services/app/*; do
+  APP_SERVICE=$(basename "$APP_SERVICE_DIR")
 
   log_status "$APP_SERVICE"
   docker build -t "{$APP_SERVICE}-build" -f Dockerfile "$APP_SERVICE_DIR"
