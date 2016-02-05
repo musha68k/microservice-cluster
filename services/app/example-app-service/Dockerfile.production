@@ -1,4 +1,4 @@
-FROM example-app-service-build
+FROM swarm
 
 ADD . /app
 WORKDIR /app
