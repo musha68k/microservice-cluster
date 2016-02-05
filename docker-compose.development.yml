@@ -1,6 +1,0 @@
-example-base-service:
-  build: services/app/example-app-service
-  ports:
-    - "9001:9001"
-  stdin_open: true
-  tty: true
